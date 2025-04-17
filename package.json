@@ -18,7 +18,9 @@
     "lint:fix": "eslint lib/* __tests__/* --ext .ts --fix",
     "build": "tsc",
     "prepare": "tsc",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "spec-1-2-turtle": "rdf-test-suite dist/parser.js https://w3c.github.io/rdf-tests/rdf/rdf12/rdf-turtle/syntax/manifest.ttl -i '{ \"format\": \"turtle\" }' -c .rdf-test-suite-cache/",
+    "spec-1-2-turtle-serialize": "rdf-test-suite dist/serializer.js https://w3c.github.io/rdf-tests/rdf/rdf12/rdf-turtle/syntax/manifest.ttl -i '{ \"format\": \"turtle\" }' -c .rdf-test-suite-cache/"
   },
   "repository": {
     "type": "git",
@@ -33,8 +35,10 @@
   "homepage": "https://github.com/jeswr/rdf-test-suite-1.2-test/README.md",
   "devDependencies": {
     "@types/jest": "^29.5.14",
+    "@types/n3": "^1.24.2",
+    "@types/streamify-string": "^1.0.4",
     "@typescript-eslint/eslint-plugin": "^8.30.1",
-    "@typescript-eslint/parser": "^7.18.0",
+    "@typescript-eslint/parser": "^8.30.1",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.31.0",
@@ -83,5 +87,14 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@jeswr/pretty-turtle": "^1.5.1",
+    "@rdfjs/types": "^2.0.1",
+    "arrayify-stream": "^3.0.0",
+    "n3": "github:rdfjs/N3.js#291df155736e434d21e3a3bb1c5b352b61ef93b5",
+    "rdf-isomorphic": "^2.0.1",
+    "rdf-test-suite": "^2.1.0",
+    "streamify-string": "^1.0.1"
   }
 }
